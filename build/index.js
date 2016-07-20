@@ -66,7 +66,7 @@
 	      return checkVal(v);
 	    });
 	  } else if (arguments.length === 2) {
-	    return typeof (0, _lodashGet2['default'])(arguments[0], arguments[1]) !== 'undefined';
+	    return checkVal((0, _lodashGet2['default'])(arguments[0], arguments[1]));
 	  }
 	  return true;
 	};
