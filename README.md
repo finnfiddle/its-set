@@ -9,18 +9,23 @@ npm install its-set
 ## Examples
 
 ```javascript
-import { expect } from 'chai';
 import itsSet from 'its-set';
 
-expect(itsSet('im set')).to.be.true;
-expect(itsSet(false)).to.be.true;
-expect(itsSet(33)).to.be.true;
+itsSet('im set'); // true
+itsSet(false); // true
+itsSet(33); // true
+itsSet({ foo: { bar: { baz: 'im set' } } }, 'foo.bar.baz'); // true
 
-expect(itsSet(undefined)).to.be.false;
-expect(itsSet(null)).to.be.false;
+itsSet(undefined); // false
+itsSet(null); // false
+itsSet({ foo: { bar: {} } }, 'foo.bar.baz'); // false
+itsSet({ foo: { bar: { baz: null } } }, 'foo.bar.baz'); // false
+```
 
-expect(itsSet({ foo: { bar: { baz: 'im set' } } }, 'foo.bar.baz')).to.be.true;
+Or...
 
-expect(itsSet({ foo: { bar: {} } }, 'foo.bar.baz')).to.be.false;
-expect(itsSet({ foo: { bar: { baz: null } } }, 'foo.bar.baz')).to.be.false;
+```javascript
+const { itsSet } = require('its-set');
+
+itsSet('im set'); // true
 ```
