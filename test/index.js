@@ -15,12 +15,12 @@ test('value is not set', (assert) => {
 });
 
 test('nested value is set', (assert) => {
-  assert.pass(itsSet({foo: {bar: {baz: 'im set'}}}, 'foo.bar.baz'));
+  assert.ok(itsSet({foo: {bar: {baz: 'im set'}}}, 'foo.bar.baz'));
   assert.end();
 });
 
 test('nested value is not set', (assert) => {
-  assert.pass(itsSet({ foo: { bar: {} } }, 'foo.bar.baz'));
-  assert.pass(itsSet({ foo: { bar: { baz: null } } }, 'foo.bar.baz'));
+  assert.notOk(itsSet({ foo: { bar: {} } }, 'foo.bar.baz'));
+  assert.notOk(itsSet({ foo: { bar: { baz: null } } }, 'foo.bar.baz'));
   assert.end();
 });

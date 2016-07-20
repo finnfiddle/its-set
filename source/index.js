@@ -6,7 +6,7 @@ export default function (val) {
   if (val.constructor === Array) {
     return val.every((v) => checkVal(v));
   } else if (arguments.length === 2) {
-    return typeof get(arguments[0], arguments[1]) !== 'undefined';
+    return checkVal(get(arguments[0], arguments[1]));
   }
   return true;
 }
