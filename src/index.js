@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import _ from 'lodash';
 
 export function itsSet (val) {
   const checkVal = (v) => typeof v !== 'undefined' && v !== null;
@@ -6,7 +6,7 @@ export function itsSet (val) {
   if (val.constructor === Array) {
     return val.every((v) => checkVal(v));
   } else if (arguments.length === 2) {
-    return checkVal(get(arguments[0], arguments[1]));
+    return checkVal(_.get(arguments[0], arguments[1]));
   }
   return true;
 }
